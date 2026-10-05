@@ -1,0 +1,322 @@
+/* =========================================================
+   FitCore Studio — estilos
+   Sumário: 1. Cores  2. Base  3. Cabeçalho  4. Cartões
+            5. Aluno  6. Personal  7. Formulários e botões
+   ========================================================= */
+
+/* ---------- 1. Cores (tema claro e escuro) ---------- */
+:root {
+  --bg: #eef1f4;
+  --card: #ffffff;
+  --ink: #14202b;
+  --mut: #5d6b78;
+  --line: #d5dbe1;
+  --acc: #e4572e;
+  --ok: #1b7f79;
+  --warn: #b7791f;
+  --r: 10px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f161d;
+    --card: #18222c;
+    --ink: #e9eef2;
+    --mut: #98a6b3;
+    --line: #2b3947;
+    --acc: #ff7a52;
+    --ok: #4cc2ba;
+    --warn: #e3b04b;
+  }
+}
+
+/* ---------- 2. Base ---------- */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 16px/1.5 Barlow, system-ui, sans-serif;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-family: 'Barlow Condensed', Impact, sans-serif;
+  letter-spacing: 0.01em;
+}
+
+h2 {
+  font-size: 26px;
+  margin-bottom: 10px;
+}
+
+h3 {
+  font-size: 20px;
+}
+
+main {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.mut {
+  color: var(--mut);
+  font-size: 14px;
+}
+
+/* ---------- 3. Cabeçalho ---------- */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 14px 20px;
+  background: var(--card);
+  border-bottom: 3px solid var(--acc);
+}
+
+header h1 {
+  font-size: 28px;
+}
+
+.tabs {
+  display: flex;
+  gap: 4px;
+}
+
+.tab {
+  padding: 6px 14px;
+  background: none;
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+}
+
+.tab[aria-pressed='true'] {
+  background: var(--ink);
+  color: var(--bg);
+  border-color: var(--ink);
+}
+
+/* ---------- 4. Cartões ---------- */
+section {
+  margin-bottom: 16px;
+  padding: 18px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+}
+
+/* ---------- 5. Tela do aluno ---------- */
+
+/* Faixa da semana */
+.week {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+  text-align: center;
+}
+
+.day {
+  padding: 8px 0;
+  font-size: 13px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.day.on {
+  background: var(--ok);
+  color: #fff;
+  border-color: var(--ok);
+}
+
+.day.today {
+  border: 2px solid var(--acc);
+}
+
+/* Exercícios */
+.ex {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px 14px;
+  padding: 14px 0;
+  border-top: 1px solid var(--line);
+}
+
+.ex:first-of-type {
+  border-top: 0;
+}
+
+.load {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 26px;
+  text-align: right;
+}
+
+.sets {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.set {
+  width: 44px;
+  height: 44px;
+  background: none;
+  font-weight: 600;
+  border: 2px solid var(--line);
+  border-radius: 50%;
+}
+
+.set[aria-pressed='true'] {
+  background: var(--acc);
+  color: #fff;
+  border-color: var(--acc);
+}
+
+/* Barra de progresso */
+.bar {
+  height: 12px;
+  overflow: hidden;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+
+.bar i {
+  display: block;
+  height: 100%;
+  background: var(--ok);
+}
+
+/* ---------- 6. Tela do personal ---------- */
+.kpis {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.kpi {
+  padding: 12px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+}
+
+.kpi b {
+  display: block;
+  font: 700 38px 'Barlow Condensed', sans-serif;
+}
+
+.tw {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 10px 6px;
+  text-align: left;
+  border-top: 1px solid var(--line);
+}
+
+th {
+  font-size: 13px;
+  color: var(--mut);
+  border: 0;
+}
+
+.chip {
+  padding: 2px 10px;
+  font-size: 13px;
+  font-weight: 600;
+  border: 1px solid currentColor;
+  border-radius: 99px;
+}
+
+.c-ok {
+  color: var(--ok);
+}
+
+.c-warn {
+  color: var(--warn);
+}
+
+.c-risk {
+  color: var(--acc);
+}
+
+/* ---------- 7. Formulários e botões ---------- */
+button {
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+select,
+input {
+  padding: 6px 10px;
+  font: inherit;
+  color: var(--ink);
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+button:focus-visible,
+select:focus-visible,
+input:focus-visible {
+  outline: 3px solid var(--acc);
+  outline-offset: 2px;
+}
+
+.btn {
+  padding: 12px 20px;
+  color: #fff;
+  font-weight: 600;
+  background: var(--acc);
+  border: 0;
+  border-radius: var(--r);
+}
+
+.btn:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+.link {
+  padding: 4px;
+  color: var(--acc);
+  background: none;
+  border: 0;
+  text-decoration: underline;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.row input {
+  width: 84px;
+}
+
+#msg {
+  min-height: 22px;
+  color: var(--ok);
+  font-weight: 600;
+}
